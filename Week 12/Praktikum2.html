@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currency Converter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .converter {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="converter">
+    <h2>Kurs Uang</h2>
+    <label for="currency">Choose Currency:</label>
+    <select id="currency">
+      <option value="usd">Dollar US</option>
+      <option value="sgd">Dollar Singapore</option>
+      <option value="myr">Ringgit Malaysia</option>
+      <option value="jpy">Yen Jepang</option>
+      <option value="eur">Euro</option>
+      <option value="sar">Riyal Arab Saudi</option>
+    </select>
+    <br>
+    <label for="amount">Enter Amount:</label>
+    <input type="number" id="amount" placeholder="Enter amount...">
+    <br>
+    <button onclick="convertCurrency()">Convert</button>
+    <br>
+    <h3>Result:</h3>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function convertCurrency() {
+      const currencyDropdown = document.getElementById("currency");
+      const amountInput = document.getElementById("amount");
+      const resultDiv = document.getElementById("result");
+
+      const selectedCurrency = currencyDropdown.value;
+      const amount = parseFloat(amountInput.value);
+
+      const exchangeRates = {
+        usd: 9915,  // 1 Dollar US to Rupiah
+        sgd: 13472, // 1 Dollar Singapore to Rupiah
+        myr: 874,   // 1 Ringgit Malaysia to Rupiah
+        jpy: 120,   // 1 Yen Jepang to Rupiah
+        eur: 15888, // 1 Euro to Rupiah
+        sar: 3592   // 1 Riyal Arab Saudi to Rupiah
+      };
+
+      const exchangeRate = exchangeRates[selectedCurrency] || 1; // Default to 1 if no match
+
+      const result = amount * exchangeRate;
+      resultDiv.textContent = `Result: ${result.toFixed(2)} Rupiah`;
+    }
+  </script>
+</body>
+</html>

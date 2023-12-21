@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ganti Foto</title>
+</head>
+<body>
+    <h2>Ganti Foto</h2>
+
+    <label for="pilihgambar">pilihgambar</label>
+    <select id="pilihgambar" onchange="tampilgambar()">
+        <option value="gorila">gorila</option>
+        <option value="ayam">ayam</option>
+        <option value="kuda">kuda</option>
+        <option value="kucing">kucing</option>
+    </select>
+    <br><br>
+    <img src="gorila.jpeg" id="gambarpilih" alt="kosong" width="300">
+
+    <script>
+        function tampilgambar() {
+            let nilaiterpilih = document.getElementById("pilihgambar").value;
+            let gambarterpilih = document.getElementById("gambarpilih").value;
+
+            switch (nilaiterpilih){
+                case "gorila":
+                    gambarpilih.src ="download.jpg";
+                    break;
+                case "ayam":
+                    gambarpilih.src ="keluarga-ayam.jpeg";
+                    break;
+                case "kuda":
+                    gambarpilih.src ="kuda.jpg";
+                    break;
+                case "kucing":
+                    gambarpilih.src ="kucing.jpg";
+                    break;
+            }
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+    <label for="">Bilangan 1</label>
+    <input type="number" name="bil2" id="bil1" oninput="pertambahan(this.value)">
+    <br><br>
+    <label for="">Bilangan 2</label>
+    <input type="number" name="bil2" id="bil2" oninput="pertambahan(this.value)">
+    <br><br>
+    <select name="" id="operator">
+        <option value="tambah">+</option>
+        <option value="pengurangan">-</option>
+        <option value="perkalian">*</option>
+        <option value="pembagian">/</option>
+    </select><br>
+    <br>
+    <input type="button" value="Hitung" id="hitung">
+    <br>
+    <p>Hasil : <span id="hasil"></span></p>
+    </div>
+
+    <script>
+        let bil1 = document.getElementById('bil1')
+        let bil2 = document.getElementById('bil2')
+        let hitung = document.getElementById('hitung')
+
+        
+
+        hitung.addEventListener('click', function() {
+            let a = parseInt(bil1.value)
+            let b = parseInt(bil2.value)
+            let opt = operator.value
+            let c = 0
+            
+            if (opt == 'tambah'){
+                c = a + b
+            } else if (opt == 'pengurangan'){
+                c = a - b
+            } else if (opt == 'perkalian'){
+                c = a * b
+            } else if (opt == 'pembagian'){
+                c = a / b
+            }
+                
+            hasil.innerHTML = c
+
+        })
+    </script>
+</body>
+</html>

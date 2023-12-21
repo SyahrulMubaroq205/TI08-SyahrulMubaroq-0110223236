@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Toko Jus Aneka Buah</h2>
+    <form action="">
+        Pilihan Jus : <span id="daftar-buah"></span>
+        </select>
+    </form>
+
+
+    <script>
+        let arr_jus = ["Mangga", "Apple", "Orange", "Banana", "Pineapple"]
+        console.log("Jumlah Jus : " + arr_jus.length);
+        
+        for (let i = 0; i < arr_jus.length; i++) {
+            console.log("Jus Ke-" + (i + 1) + ' : ' + arr_jus[i])
+        }
+
+        let daftar_buah = document.getElementById('daftar-buah')
+        let dropdown = '<select>';
+        for (let i = 0; i < arr_jus.length ;i++){
+            dropdown += '<option>' + arr_jus[i] + '</option>';
+        }
+
+        dropdown += '</select>'
+        daftar_buah.innerHTML = dropdown;
+    
+    </script>
+</body>
+</html>
